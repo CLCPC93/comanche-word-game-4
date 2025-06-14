@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Comanche Word Game 4</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Comanche Word Game 4</h1>
+    <p>Guess the 4-letter Comanche word</p>
+  </header>
+  <main>
+    <div id="game-board"></div>
+    <div id="keyboard-container"></div>
+    <div id="message-container"></div>
+    <button id="share-button" style="display:none; margin-top:1em;">Share</button>
+
+    <div id="color-key">
+      <h3>Color Key</h3>
+      <div class="key-row">
+        <div class="key-tile correct">A</div>
+        <span>Correct spot</span>
+      </div>
+      <div class="key-row">
+        <div class="key-tile present">A</div>
+        <span>In word, wrong spot</span>
+      </div>
+      <div class="key-row">
+        <div class="key-tile absent">A</div>
+        <span>Not in word</span>
+      </div>
+    </div>
+  </main>
+  <script src="words.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
