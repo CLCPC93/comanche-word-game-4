@@ -72,15 +72,85 @@ header {
   font-weight: bold;
   border-radius: 4px;
 }
-.correct {
-  background-color: #66b3ff;
-  color: white;
+
+/* ---- unify colors + keep borders (scoped) ---- */
+:root{
+  --correct:#003366;   /* dark blue = correct place */
+  --present:#66b3ff;   /* light blue = in word, wrong place */
+  --absent:#ccc;       /* not in word */
+  --tile-border:#aaccee;
+  --key-border:#aaccee;
 }
-.present {
-  background-color: #cce4ff;
-  color: #003366;
+
+/* GRID TILES */
+.tile.correct{
+  background: transparent !important;
+  border-color: var(--tile-border) !important;
+  box-shadow: inset 0 0 0 9999px var(--correct) !important;
+  color:#fff !important;
 }
-.absent {
-  background-color: #ccc;
-  color: #333;
+.tile.present{
+  background: transparent !important;
+  border-color: var(--tile-border) !important;
+  box-shadow: inset 0 0 0 9999px var(--present) !important;
+  color:#003366 !important;
 }
+.tile.absent{
+  background: transparent !important;
+  border-color: var(--tile-border) !important;
+  box-shadow: inset 0 0 0 9999px var(--absent) !important;
+  color:#333 !important;
+}
+
+/* KEYBOARD */
+.keyboard-button.correct{
+  background: transparent !important;
+  border-color: var(--key-border) !important;
+  box-shadow: inset 0 0 0 9999px var(--correct) !important;
+  color:#fff !important;
+}
+.keyboard-button.present{
+  background: transparent !important;
+  border-color: var(--key-border) !important;
+  box-shadow: inset 0 0 0 9999px var(--present) !important;
+  color:#003366 !important;
+}
+.keyboard-button.absent{
+  background: transparent !important;
+  border-color: var(--key-border) !important;
+  box-shadow: inset 0 0 0 9999px var(--absent) !important;
+  color:#333 !important;
+}
+
+/* LEGEND (Color Key) */
+.key-tile{
+  border:2px solid var(--tile-border);
+  background:#fff;
+  color:#003366;
+}
+.key-tile.correct{
+  background: transparent !important;
+  box-shadow: inset 0 0 0 9999px var(--correct) !important;
+  color:#fff !important;
+}
+.key-tile.present{
+  background: transparent !important;
+  box-shadow: inset 0 0 0 9999px var(--present) !important;
+  color:#003366 !important;
+}
+.key-tile.absent{
+  background: transparent !important;
+  box-shadow: inset 0 0 0 9999px var(--absent) !important;
+  color:#333 !important;
+}
+
+/* Hover/press polish for keyboard */
+.keyboard-button {
+  transition: box-shadow .15s ease, background .15s ease, color .15s ease, transform .05s ease;
+}
+.keyboard-button:not(.correct):not(.present):not(.absent):hover { background-color:#cce4ff; }
+.keyboard-button.correct:hover { box-shadow: inset 0 0 0 9999px #00264d; }
+.keyboard-button.present:hover { box-shadow: inset 0 0 0 9999px #5aa9f8; }
+.keyboard-button.absent:hover  { box-shadow: inset 0 0 0 9999px #bdbdbd; }
+.keyboard-button:active { transform: translateY(1px); }
+.keyboard-button:focus-visible { outline: 2px solid #145374; outline-offset: 2px; }
